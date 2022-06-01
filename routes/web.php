@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\PanelController;
+use App\Http\Controllers\SmsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,11 @@ Route::get('/', function () {
 
 //Route::get('/users', [UsersController::class, 'users']);
 Route::get('/register', [UsersController::class, 'register_user']);
+Route::get('/execute_sms', [SmsController::class, 'execute_sms']);
+
+Route::prefix('panel')->group(function(){
+    Route::get('/dashboard', [PanelController::class, 'dashboard']);
+    Route::get('/accounts', [PanelController::class, 'accounts']);
+    Route::get('/accounts/{client_id}', [PanelController::class, 'account_view']);
+    Route::post('/load/add', [PanelController::class, 'load_add']);
+});

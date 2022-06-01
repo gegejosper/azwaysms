@@ -22,16 +22,17 @@ class UsersController extends Controller
 
         $headers = array(
         "Accept: application/json",
-        "Authorization: Bearer {token}",
-        "Content-Type: application/json",
+        "Authorization: Bearer 94891de6620bf5ac4b8a94cea37112ea3abeb5d723f737f1b1aa7607ddd8e3c8",
+        "Content-Type: application/x-www-form-urlencoded",
         );
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
         $data = <<<DATA
-        {"name" : "Gegejosper",
-        "email" : "09177222631",
-        "password" : "pass",
-        "password_confirmation" : "pass"
+        {
+        "name": "Gegejosper",
+        "email": "gegejosper.gasb@gmail.com",
+        "password": "1234",
+        "password_confirmation": "1234"
         }
         DATA;
 
@@ -45,5 +46,5 @@ class UsersController extends Controller
         curl_close($curl);
         var_dump($resp);
 
-    }
+            }
 }
