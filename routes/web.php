@@ -26,6 +26,9 @@ Route::get('/execute_sms', [SmsController::class, 'execute_sms']);
 
 Route::prefix('panel')->group(function(){
     Route::get('/dashboard', [PanelController::class, 'dashboard']);
+    Route::get('/api', [PanelController::class, 'api']);
+    Route::get('/settings', [PanelController::class, 'settings']);
+    Route::get('/sms_logs', [PanelController::class, 'sms_logs']);
     Route::get('/accounts', [PanelController::class, 'accounts']);
     Route::get('/accounts/{client_id}', [PanelController::class, 'account_view']);
     Route::post('/load/add', [PanelController::class, 'load_add']);
